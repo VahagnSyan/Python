@@ -5,8 +5,14 @@ For example, 545, is the palindrome numbers
 DO NOT use reverse builtin function.
 """
 
-input_number = int(input("Enter the number: "))
-if str(input_number) == str(input_number)[::-1]:
+
+input_number = input("Enter the number: ")
+while not input_number.isdigit():
+    input_number = input("Enter the number: ")
+
+if input_number == input_number[::-1]:
     print("The given number is polindrome:")
 else:
     print("The given number is not polindrome:")
+
+input_number = int(input_number)
