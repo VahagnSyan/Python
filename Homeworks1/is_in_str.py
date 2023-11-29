@@ -1,6 +1,6 @@
 """
-Implement built-in function 
-is_in_str(str_obj, sub_string)
+    Implement built-in function 
+    is_in_str(str_obj, sub_string)
 """
 
 input_string = "Hello World!" # Magic Value

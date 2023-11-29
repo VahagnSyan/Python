@@ -1,4 +1,6 @@
-"""Display numbers divisible by 5 from a list"""
+"""
+    Display numbers divisible by 5 from a list
+"""
 
 nums = [10, 20, 33, 46, 55] # Magic value
 
