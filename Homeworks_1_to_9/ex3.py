@@ -1,9 +1,9 @@
 """ ex3.py
 
-Print characters from a string that are present at an even index number
+	Print characters from a string that are present at an even index number
 
-Orginal String is  test_text
-Printing only even index chars
+	Orginal String is  test_text
+	Printing only even index chars
 """
 
 text = input("Enter your text: ")

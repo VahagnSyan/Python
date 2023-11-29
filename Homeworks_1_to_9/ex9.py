@@ -1,7 +1,7 @@
 """ ex9.py
 
-write functions for the following string operation
-is_in_str(str_obj, sub_string)
+	write functions for the following string operation
+	is_in_str(str_obj, sub_string)
 
 """
 

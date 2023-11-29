@@ -1,7 +1,7 @@
 """ ex7.py
 
-write functions for the following string operation
-startswith(str_obj, sub_string)
+	write functions for the following string operation
+	startswith(str_obj, sub_string)
 
 """
 
