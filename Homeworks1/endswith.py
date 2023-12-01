@@ -3,8 +3,8 @@
     endswith(str_obj, sub_string)
 """
 
-input_string = "Hello World!" # Magic Value
-input_substring = "d!" # Magic Value
+input_string = "Hello World!"  # Magic Value
+input_substring = "d!"  # Magic Value
 
 
 def endswith(str_obj, sub_string):
@@ -12,7 +12,7 @@ def endswith(str_obj, sub_string):
     # substring length subtracted length of string
     # to end of string
     # and returning value
-    return True if str_obj[-len(sub_string):] == sub_string else False
+    return True if str_obj[-len(sub_string) :] == sub_string else False
 
 
 print(endswith(input_string, input_substring))
