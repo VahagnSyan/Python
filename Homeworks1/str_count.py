@@ -5,8 +5,20 @@
     function signature: count_sub_in_str(string_obj, substring)
 """
 
-input_string = "Hello World!" # Magic Value
-input_substring = "ll" # Magic Value
+
+def input_string():
+    string = input("Input the string: ")
+    return string
+
+
+def input_substring():
+    string = input("Input the substring: ")
+    return string
+
+
+string = input_string()
+sub_string = input_substring()
+
 
 def count_sub_in_str(string_obj, substring):
     count = 0
@@ -24,5 +36,4 @@ def count_sub_in_str(string_obj, substring):
     return count
 
 
-
-print(count_sub_in_str(input_string, input_substring))
+print(count_sub_in_str(string, sub_string))

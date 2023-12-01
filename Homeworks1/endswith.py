@@ -3,8 +3,19 @@
     endswith(str_obj, sub_string)
 """
 
-input_string = "Hello World!"  # Magic Value
-input_substring = "d!"  # Magic Value
+
+def input_string():
+    string = input("Input the string: ")
+    return string
+
+
+def input_substring():
+    string = input("Input the substring: ")
+    return string
+
+
+string = input_string()
+sub_string = input_substring()
 
 
 def endswith(str_obj, sub_string):
@@ -15,4 +26,4 @@ def endswith(str_obj, sub_string):
     return True if str_obj[-len(sub_string) :] == sub_string else False
 
 
-print(endswith(input_string, input_substring))
+print(endswith(string, sub_string))

@@ -6,20 +6,28 @@
     DO NOT use reverse builtin function.
 """
 
-input_number = 545 # Magic value
+
+def input_number():
+    number = int(input("Enter the number: "))
+    while number <= 1:
+        number = int(input("Please enter number bigger than 1: "))
+    return number
+
+
+input_number = input_number()
 
 # Convert number to string to iterate over elements
 string_number = str(input_number)
 
-is_palindrome = True;
+is_palindrome = True
 
 for i in range(0, len(string_number)):
-    if(string_number[i] != string_number[len(string_number) - 1 - i]):
+    if string_number[i] != string_number[len(string_number) - 1 - i]:
         # Comparing ith element to corresponding
         # ith element from the end of string
         # If they are not the same then the number is not palindrome.
 
-        is_palindrome = False;
+        is_palindrome = False
         break
 
 

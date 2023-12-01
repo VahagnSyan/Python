@@ -3,8 +3,19 @@
     is_in_str(str_obj, sub_string)
 """
 
-input_string = "Hello World!"  # Magic Value
-input_substring = "rld"  # Magic Value
+
+def input_string():
+    string = input("Input the string: ")
+    return string
+
+
+def input_substring():
+    string = input("Input the substring: ")
+    return string
+
+
+string = input_string()
+sub_string = input_substring()
 
 
 def is_in_str(str_obj, sub_string):
@@ -19,4 +30,4 @@ def is_in_str(str_obj, sub_string):
         return is_in_str(str_obj[first_match_index + 1 :], sub_string)
 
 
-print(is_in_str(input_string, input_substring))
+print(is_in_str(string, sub_string))

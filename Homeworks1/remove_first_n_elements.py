@@ -4,10 +4,20 @@
     a string starting from zero up to n and return a new string.
 """
 
-input_string = "Hello World!" # Magic value
-n = 3 # Magic value
 
-input_string = input_string[n:] # Slices input string starting from nth position
+def input_string():
+    string = input("Input the string: ")
+    return string
 
-print(input_string)
 
+def input_character_count():
+    characters_count = int(input("Input characters count to remove: "))
+    return characters_count
+
+
+string = input_string()
+characters_count = input_character_count()
+
+string = string[characters_count:]  # Slices input string starting from nth position
+
+print(string)

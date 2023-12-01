@@ -5,10 +5,15 @@
     Printing only even index chars
 """
 
-input_string = "test_text" # Magic value
+
+def input_string():
+    string = input("Input the string: ")
+    return string
 
 
-for i in range (0, len(input_string)):
+string = input_string()
+
+for i in range(0, len(string)):
     # Iterating over string and checking if they are even
-    if(i % 2 == 0):
-        print(input_string[i])
+    if i % 2 == 0:
+        print(string[i])

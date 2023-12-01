@@ -7,9 +7,16 @@
     5 5 5 5 5
 """
 
-input_size = 6 # Magic value
 
-for i in range(1, input_size):
+def input_size():
+    size = int(input("Input the size of stairs pattern: "))
+    return size
+
+
+size = input_size()
+
+
+for i in range(1, size):
     for j in range(i):
         print(i, end=" ")
     print()
