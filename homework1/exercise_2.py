@@ -1,6 +1,6 @@
 """
-Remove first n characters from a string
-Write a program to remove characters from a string starting from zero up to n and return a new string.
+    Remove first n characters from a string
+    Write a program to remove characters from a string starting from zero up to n and return a new string.
 
 """
 
@@ -10,9 +10,12 @@ def remove_chars(string, n):
 
 def main():
     text = input("Enther text: ")
-    boarder = int(input("Enter boarder: "))
+    boarder = input("Enter boarder: ")
 
-    result = remove_chars(text, boarder)
+    while not boarder.isdigit():
+        boarder = input("Enter the number: ")
+
+    result = remove_chars(text, int(boarder))
     print(result) 
 
 main()

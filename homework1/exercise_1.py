@@ -1,21 +1,21 @@
 """
-Display numbers divisible by 5 from a list
+    Display numbers divisible by 5 from a list
 
 """
 
 def input_array():
     array = []
-    print("Enter numbers (type 'done' to finish):")
+    quantity = int(input("Enter quantity of array elements: "))
 
-    while True:
-        user_input = input("Enter a number: ")
+    for i in range(0, quantity):
+        input_number = input("Enter the number: ")
+        while not input_number.isdigit():
+            input_number = input("Enter the number: ")
 
-        if user_input.lower() == 'done':
-            break
         
-        array.append(int(user_input))
+        array.append(int(input_number))
 
-    print("The numbers entered are:", array)
+    print("The entered numbers are:", array)
     return array
 
 def check_divisibility(numbers):

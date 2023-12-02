@@ -1,5 +1,5 @@
 """
-Check Palindrome Number
+    Check Palindrome Number
 
 """
 
@@ -15,9 +15,13 @@ def is_palindrome(num):
 
 
 def main():
-    number = int(input("Enter a number: "))
+    number = input("Enter a number: ")
 
-    if is_palindrome(number):
+    while not number.isdigit():
+        number = input("Enter a number: ")
+
+
+    if is_palindrome(int(number)):
         print(f"{number} is a palindrome number")
     else:
         print(f"{number} is not a palindrome number")

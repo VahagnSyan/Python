@@ -1,6 +1,6 @@
 """
-write functions for the following string operations
-is_in_str(str_obj, sub_string)
+    write functions for the following string operations
+    is_in_str(str_obj, sub_string)
 
 """
 

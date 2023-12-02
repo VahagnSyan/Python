@@ -1,6 +1,6 @@
 """
-write functions for the
-startswith(str_obj, sub_string)
+    write functions for the
+    startswith(str_obj, sub_string)
 
 """
 
