@@ -7,6 +7,14 @@
 
 import random
 
+def get_valid_number():  # Check if the input number is valid
+    while True:
+        try:
+            input_number = int(input("Enter the number: "))
+            return input_number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+    
 def matrix_addition(row, column):  # Return the matrix with random numbers
     result_matrix = []
     for i in range(row):
@@ -16,13 +24,11 @@ def matrix_addition(row, column):  # Return the matrix with random numbers
     
     return result_matrix
 
-matrix_row = input("Enter the number of rows: ")
-while not matrix_row.isdigit():
-    matrix_row = input("Enter the number of rows: ")
+print("Enter the number of rows: ")
+matrix_row = get_valid_number()
 
-matrix_column = input("Enter the number of columns: ")
-while not matrix_column.isdigit():
-    matrix_column = input("Enter the number of columns: ")
+print("Enter the number of columns: ")
+matrix_column = get_valid_number()
 
-matrix = matrix_addition(int(matrix_row), int(matrix_column))
+matrix = matrix_addition(matrix_row, matrix_column)
 print(matrix)
