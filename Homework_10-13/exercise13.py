@@ -3,15 +3,17 @@
     կտպի թե այդ թվերից որն է մեծ, որը՝ փոքր, կամ՝ հավասար։
     Ֆունցիան չպետք է օգտագործի համեմատության օպերատորներ։
 '''
-def input_num(prompt):
+def input_number():
     while True:
-        num = input(prompt)
-        if num.isdigit() and int(num) > 1:
+        num = input()
+        if num.isdigit():
             return int(num)
-        print("Invalid input! Please enter a number greater than 1:")
+        print("Invalid input! Please enter a number:")
 
-num1 = input_num("Enter the first number: ")
-num2 = input_num("Enter the second number: ")
+print("Enter the first number: ")
+num1 = input_number()
+print("Enter the second number: ")
+num2 = input_number()
 
 def compare_numbers(a, b):
     diff = a - b
