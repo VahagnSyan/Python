@@ -3,26 +3,25 @@
     կտպի թե այդ թվերից որն է մեծ, որը՝ փոքր, կամ՝ հավասար։
     Ֆունցիան չպետք է օգտագործի համեմատության օպերատորներ։
 '''
-
-def input_number():
+def input_num(prompt):
     while True:
-        num = input("Enter a number: ")
-        if num.isdigit():
+        num = input(prompt)
+        if num.isdigit() and int(num) > 1:
             return int(num)
-        print("Invalid input! Please enter a number:")
+        print("Invalid input! Please enter a number greater than 1:")
+
+num1 = input_num("Enter the first number: ")
+num2 = input_num("Enter the second number: ")
 
 def compare_numbers(a, b):
-    if a == b:
+    diff = a - b
+    if diff == 0:
         print(f"{a} is equal to {b}")
-    elif a > b:
-        print(f"{a} is greater than {b}")
     else:
-        print(f"{a} is less than {b}")
-
-
-num1 = input_number("Enter the first number: ")
-num2 = input_number("Enter the second number: ")
-
+        sign = diff // abs(diff)  # Determines the sign of the difference
+        if sign == 1:
+            print(f"{a} is greater than {b}")
+        else:
+            print(f"{a} is less than {b}")
 
 compare_numbers(num1, num2)
-
