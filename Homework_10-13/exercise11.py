@@ -7,20 +7,23 @@
 
 import random
 
+def input_number(prompt):
+    while True:
+        num = input(prompt)
+        if num.isdigit() and int(num) > 0:
+            return int(num)
+        print("Invalid input! Please enter a number greater than 0.")
+
 def input_matrix_size():
-    m = int(input("Enter the count of rows: "))
-    while m < 1:
-        m = int(input("Row size of matrix should be bigger than 0: "))
-
-    n = int(input("Enter the count of columns: "))
-    while n < 1:
-        n = int(input("Column size of matrix should be bigger than 0: "))
-
+    m = input_number("Enter the count of rows: ")
+    n = input_number("Enter the count of columns: ")
     return m, n
 
 def matrix(m, n):
-    #generates 'm' rows to form the matrix
-    return [[random.randint(0, 9) for _ in range(n)] for _ in range(m)] 
+    # generates 'm' rows and 'n' columns for the matrix
+    return [[random.randint(0, 9) for _ in range(n)] for _ in range(m)]
 
 m, n = input_matrix_size()
 print(matrix(m, n))
+
+

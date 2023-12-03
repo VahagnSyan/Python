@@ -4,7 +4,7 @@
 '''
 
 def startswith(str_obj, sub_string):
-    return str_obj.startswith(sub_string)
+    return str_obj[:len(sub_string)] == sub_string
 
 str_input = input("Enter the  string: ")
 sub_input = input("Enter the substring: ")

@@ -5,7 +5,11 @@
 '''
 
 def input_number():
-    return int(input("Enter the number: "))
+    while True:
+        num = input("Enter a number: ")
+        if num.isdigit() and int(num) > 1:
+            return int(num)
+        print("Invalid input! Please enter a number:")
 
 def is_prime(num):
     divider = 2

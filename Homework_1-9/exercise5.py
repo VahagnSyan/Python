@@ -6,17 +6,23 @@
     DO NOT use reverse builtin function.
 '''
 
-num = int(input("Enter a number: "))
-original_number = num
-reversed_number = 0
+def input_num():
+    while True:
+        num = input("Enter a number: ")
+        if num.isdigit() and int(num) > 1:
+            return int(num)
+        print("Invalid input! Please enter a number greater than 1:")
 
-while num > 0:
-    digit = num % 10  
-    reversed_number = reversed_number * 10 + digit  
-    num //= 10  
+def check_palindrome(num):
+    num_str = str(num)  # Convert the number to a string
 
-if original_number == reversed_number:
-    print("The number is a palindrome number")
-else:
-    print("The number is not a palindrome number")
+    if num_str == num_str[::-1]:  # Check if the string is equal to its reverse
+        print("The number is a palindrome")
+    else:
+        print("The number is not a palindrome")
+
+
+number = input_num()
+check_palindrome(number)
+
 
