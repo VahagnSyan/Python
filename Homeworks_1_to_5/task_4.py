@@ -1,26 +1,20 @@
 '''
-Print the following pattern
-1
-2 2
-3 3 3
-4 4 4 4
-5 5 5 5 5
+    Print the following pattern
+    1
+    2 2
+    3 3 3
+    4 4 4 4
+    5 5 5 5 5
 '''
-# DefinE the number of rows for the pattern
-rows = 5
-# Define the loop counter
-i = 1
 
-# Loop for each row
-while i <= rows:
-    j = 1
+rows = input('Enter the count of rows: ')
 
-    # Loop for printing numbers in each row
-    while j <= i:
-        # Print the value of the outer loop counter (i) with a space
-        print(i, end=' ')
-        j += 1
+while True:
+    if rows.isdigit():
+        rows = int(rows)
+        break
+    else:
+        rows = input('The count of rows must be an integer: ')
 
-    # Move to the next line after printing the numbers for the current row
-    print()
-    i += 1
+for i in range(1, rows + 1):
+    print((str(i) + ' ') * i)
