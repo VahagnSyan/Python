@@ -6,6 +6,14 @@
 """
 
 
+def get_valid_number():  # Check if the input number is valid
+    while True:
+        try:
+            input_number = int(input("Enter the number: "))
+            return input_number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+    
 def print_prime_numbers(number):
     if number < 2:
         print("No prime numbers")
@@ -21,8 +29,6 @@ def print_prime_numbers(number):
             if dividers_count:
                 print(i, end=" ")
 
-input_number = input("Enter the number: ")
-while not input_number.isdigit():
-    input_number = input("Enter the number: ")
+input_number = get_valid_number()
 
 print_prime_numbers(int(input_number))
