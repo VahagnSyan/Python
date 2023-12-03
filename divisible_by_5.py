@@ -3,7 +3,7 @@
     Display numbers divisible by 5 from a list
     Given list is  [10, 20, 33, 46, 55]
     Divisible by 5
-10
+    10
 """
 
 
