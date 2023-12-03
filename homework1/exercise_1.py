@@ -2,10 +2,18 @@
     Display numbers divisible by 5 from a list
 
 """
+def get_valid_number():  # Check if the input number is valid
+    while True:
+        try:
+            input_number = int(input("Enter the number: "))
+            return input_number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
 
 def input_array():
     array = []
-    quantity = int(input("Enter quantity of array elements: "))
+    quantity = get_valid_number()
 
     for i in range(0, quantity):
         input_number = input("Enter the number: ")
@@ -19,7 +27,7 @@ def input_array():
     return array
 
 def check_divisibility(numbers):
-    divisible = int(input("Enter the divisible : "))
+    divisible = get_valid_number()
 
     for i in range(0, len(numbers)):
         if numbers[i] % divisible == 0:

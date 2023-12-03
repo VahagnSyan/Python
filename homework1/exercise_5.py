@@ -14,16 +14,22 @@ def is_palindrome(num):
     return True
 
 
+def get_valid_number():  # Check if the input number is valid
+    while True:
+        try:
+            input_number = int(input("Enter the number: "))
+            return input_number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+
 def main():
-    number = input("Enter a number: ")
-
-    while not number.isdigit():
-        number = input("Enter a number: ")
-
+    number = get_valid_number()
 
     if is_palindrome(int(number)):
         print(f"{number} is a palindrome number")
     else:
         print(f"{number} is not a palindrome number")
+
 
 main()

@@ -8,13 +8,19 @@ def remove_chars(string, n):
     new_string = string[n:]
     return new_string
 
+
+def get_valid_number():  # Check if the input number is valid
+    while True:
+        try:
+            input_number = int(input("Enter the number: "))
+            return input_number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+
 def main():
     text = input("Enther text: ")
-    boarder = input("Enter boarder: ")
-
-    while not boarder.isdigit():
-        boarder = input("Enter the number: ")
-
+    boarder = get_valid_number()
     result = remove_chars(text, int(boarder))
     print(result) 
 
