@@ -7,7 +7,8 @@ Divisible by 5
 10
 '''
 
+
 input_list = [10, 2, 30, 40]
 for i in input_list:
-    if(i % 5 == 0):
+    if i % 5 == 0:
         print(i)
