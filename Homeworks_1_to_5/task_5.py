@@ -8,19 +8,11 @@
 num = input('Enter the number: ')
 while True:
     if num.isdigit():
-        num = int(num)
         break
     else:
         num = input('The number must be an integer: ')
-original_number = num
-reversed_number = 0
 
-while num > 0:
-    digit = num % 10
-    reversed_number = reversed_number * 10 + digit
-    num //= 10
-
-if original_number == reversed_number:
+if num == num[::-1]:
     print("The number is a palindrome!")
 else:
     print("The number is not a palindrome!")
