@@ -31,4 +31,4 @@ def print_prime_numbers(number):
 
 input_number = get_valid_number()
 
-print_prime_numbers(int(input_number))
+print_prime_numbers(input_number)
