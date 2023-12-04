@@ -12,4 +12,5 @@ def get_symbol_frequency(some_text):
 input_string = input("Enter the some text: ")
 result = get_symbol_frequency(input_string)
 
-print(result)
+for key, value in result.items():
+    print(key, value, sep=': ')
