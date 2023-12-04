@@ -12,17 +12,3 @@ def frequency_count(arr_text):
 
 result = frequency_count(arr_text)
 print(result)
-
-"""str_char = "asscewhii  vbiqx"
-
-def str_dict(str_char):
-    char_count = {}
-    for char in str_char:
-        if char in char_count:
-            char_count[char] += 1
-        else:
-            char_count[char] = 1
-    return char_count
-
-result = str_dict(str_char)
-print(result)"""
