@@ -16,13 +16,7 @@ def get_valid_number():  # Check if the input number is valid
             print("Invalid input. Please enter a valid number.")
     
 def matrix_addition(row, column):  # Return the matrix with random numbers
-    result_matrix = []
-    for i in range(row):
-        result_matrix.append([])  
-        for _ in range(column):
-            result_matrix[i].append(random.randint(0, 9))
-    
-    return result_matrix
+    return [[random.randint(0, 9) for _ in range(column)] for i in range(row)]
 
 print("Enter the number of rows: ")
 matrix_row = get_valid_number()
@@ -31,4 +25,6 @@ print("Enter the number of columns: ")
 matrix_column = get_valid_number()
 
 matrix = matrix_addition(matrix_row, matrix_column)
-print(matrix)
+
+for i in matrix:
+    print(i)
