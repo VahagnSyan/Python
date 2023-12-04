@@ -7,14 +7,7 @@
 from random import random
 
 def create_matrix(num1, num2):
-    matrix = []
-
-    for i in range(num1):
-        matrix.append([]) 
-        for j in range(num2):
-            value = random() * 10
-            matrix[i].append(int(value))
-    
+    matrix = [[int(random() * 10) for j in range(num2)] for i in range(num1)]
     print(matrix)
 
 
