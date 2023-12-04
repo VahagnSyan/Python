@@ -4,27 +4,29 @@
 '''
 
 
-def compare_nums(num1, num2):
-    if not(num1 - num2):
-        print(f"{num1} = {num2}")
-    elif not(num2) and num1 + abs(num1):
-        print(f"{num1} > {num2}")
-    elif not(num2) and not(num1 + abs(num1)):
-        print(f"{num1} < {num2}")
-    elif not(num1) and not(num2 + abs(num2)):
-        print(f"{num1} > {num2}")
-    elif not(num1 + abs(num1)):
-        if not(num2 + abs(num2)) and not(num1 // num2):
-            print(f"{num1} > {num2}")
-        elif not(num2 + abs(num2)) and num1 // num2:
-            print(f"{num1} < {num2}")
-        else:
-            print(f"{num1} < {num2}")
-    elif num1 // num2:
-        print(f"{num1} > {num2}")
-    else:
-        print(f"{num1} < {num2}")
-        
-input_num1 = int(input("Enter the first number: "))
-input_num2 = int(input("Enter the second number: "))
-compare_nums(input_num1, input_num2) 
+def find_max(num1, num2):
+    difference = num1 - num2
+    if difference == 0:
+        print('numbers are equal')
+        return
+
+    sign = (difference >> 31) & 1 
+    print(num1, num2, sep=' < ') if sign else print(num1, num2, sep=' > ')
+
+
+def get_valid_number():
+    while True:
+        try:
+            input_number = int(input("Enter the number: "))
+            return input_number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+
+def main():
+    input_number1 = get_valid_number()
+    input_number2 = get_valid_number()
+    find_max(int(input_number1), int(input_number2))
+
+
+main()
