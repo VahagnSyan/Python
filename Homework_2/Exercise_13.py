@@ -14,31 +14,16 @@ def get_valid_number():  # Check if the input number is valid
             print("Invalid input. Please enter a valid number.")
 
 def compare_numbers(first_number, second_number):
-    # Check if numbers are equal
-    if not(first_number-second_number):
-        print(f"{first_number} = {second_number}")
-    # Check if second number is 0
-    elif not(second_number):  
-        # Check if first number is less than 0
-        if not(first_number + abs(first_number)): 
-            print(f"{first_number} < {second_number}")
-        else:
-            print(f"{first_number} > {second_number}")
-    # Check if first number is less than 0
-    elif not(first_number + abs(first_number)):  
-        # Check if both numbers are negative and first_number has the second_number
-        if not(second_number + abs(second_number)) and first_number//second_number:
-            print(f"{first_number} < {second_number}")
-        # Check if both numbers are negative and first_number doesn't have the second_number
-        elif not(second_number + abs(second_number)) and not(first_number//second_number):
-            print(f"{first_number} > {second_number}")
-        else:
-            print(f"{first_number} < {second_number}")
-    # Check if first_number has the second_number
-    elif first_number//second_number:  
-        print(f"{first_number} > {second_number}")
-    else:
-        print(f"{first_number} < {second_number}")
+    difference = first_number - second_number
+    if difference == 0:
+        print(first_number, second_number, sep=' = ')
+        return
+
+    sign = (difference >> 31) & 1  # Return the sign of difference
+    if sign:  # If sign is 1, first number is bigger than second
+        print(first_number, second_number, sep=' < ')
+    else:  # Otherwise, the first number is less than the second
+        print(first_number, second_number, sep=' > ')
 
 print("Now enter the first number!")
 first_number = get_valid_number()
