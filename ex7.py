@@ -5,14 +5,15 @@ write functions for the following string operations
 
 #START
 given_str="This is my text"
-key="T"
+key="Thi"
 def startswith(str_obj, sub_string):
-    if sub_string[0]==str_obj:
+    n=len(str_obj)
+    if sub_string[:n]==str_obj:
         return True
     else:
         return False
 a=startswith(key, given_str)
 if a==True:
-    print("String starts with 'T'")
+    print("String starts with _", eval('key'))
 if a == False:
-    print("String don't start with 'T'")
+    print("String don't start with _", eval('key'))

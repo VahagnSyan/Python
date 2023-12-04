@@ -5,11 +5,13 @@ write functions for the following string operations
 
 #END
 given_str="Hello my World"
-key=(input("Enter the letter you want  to  check\n _"))
-
-if key.isdigit(): #check if key is number
-    input("Enter the letter you want  to  check\n _")
-
+while True:
+    key=(input("Enter the letter you want  to  check\n _"))
+    if key.isdigit(): #check if key is number
+        print("You have to  enter only  letter!")
+    else:
+        break
+        
 print("Our text is:")
 print(given_str)
 print("-//-//-//-")
