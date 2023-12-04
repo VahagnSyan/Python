@@ -6,33 +6,13 @@
 
     
 def find_max(num1, num2):
+    diff = num1 - num2
+    if diff == 0:
+        print('numbers are equal')
+        return
 
-    if (not(num1 - num2)):     # if num1 = num2
-        print(f"{num1} = {num2}")
-    
-    elif (not(num2)):   # if num2 == 0
-        if (not(num1 + abs(num1))):
-            print(f"{num2} > {num1}")
-        else:
-            print(f"{num1} > {num2}")
-    
-    elif (not(num1 + abs(num1)) and not(num2 + abs(num2))):   # if num1 and num2 < 0
-        if(num1 // num2):
-            print(f"{num2} > {num1}")
-        else:
-            print(f"{num1} > {num2}")
-    
-    elif(num1+abs(num1) and num2+abs(num2)):    # id num1 and num2 > 0 
-        if(num1 // num2):
-            print(f"{num1} > {num2}")
-        else:
-            print(f"{num2} > {num1}")
-    
-    elif(not(num1 + abs(num1))):    # if num1 < 0, num2 > 0   
-        print(f"{num2} > {num1}")
-
-    else:   # if num1 < 0, num2 >0
-        print(f"{num1} > {num2}")
+    sign = (diff >> 31) & 1     # we check if 32 bits value(sign) is 1(-) or 0 (+)
+    print(num1, num2, sep=' < ') if sign else print(num1, num2, sep=' > ')
 
 
 def get_valid_number():  # Check if the input number is valid
@@ -46,9 +26,9 @@ def get_valid_number():  # Check if the input number is valid
 
 def main():
     input_number1 = get_valid_number()
-    input_number2 = get_valid_number()
-    
+    input_number2 = get_valid_number()  
     find_max(int(input_number1), int(input_number2))
+
 
 main()
 
