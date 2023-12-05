@@ -2,10 +2,7 @@
 def get_symbol_frequency(some_text):
     result = {}
     for i in some_text:
-        if i in result:
-            result[i] += 1
-        else:
-            result[i] = 1
+        result[i] = result[i] + 1 if i in result else 1
     
     return result
 
