@@ -3,13 +3,13 @@
 """
 
 
-import random
+from random import randint
 
 
 def guess_the_number():
     print("------- Guess The Number ------",)
     print("        From (1 to 100)       \n")
-    program_number = random.choice(range(1, 101))
+    program_number = randint(1, 101)
     while True:
         user_number = input_number()
         if user_number == program_number:
@@ -21,13 +21,12 @@ def guess_the_number():
             print("Your number is greater than the program number.")
 
 def input_number():
-    num = input("Enter the number: ")
     while True:
-        if num.isdigit():
-            return int(num)
-        else:
-            num = input("Enter the number: ")
-
+        try:
+            input_number = int(input("Enter the number: "))
+            return input_number
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
 guess_the_number()    
 
