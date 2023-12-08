@@ -6,14 +6,14 @@
 def words_count(paragraph):
     characters = "\\!()-[]}{;:',<>./?@#$%^&*_~'\"|"
 
-    # Remove specified characters from the paragraph
-    for symbol in paragraph:
-        if symbol in characters:
-            paragraph = paragraph.replace(symbol, " ")
+    # Replace characters with spaces
+    cleaned_paragraph = paragraph
+    for symbol in characters:
+        cleaned_paragraph = cleaned_paragraph.replace(symbol, " ")
 
     result = {}
     # Split the paragraph into words
-    words = paragraph.split()
+    words = cleaned_paragraph.split()
 
     for word in words:
         result[word] = result.get(word, 0) + 1
