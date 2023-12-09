@@ -1,32 +1,37 @@
-# Գրեք ֆունկցիա, որը ստեղծում է ամբողջ թվերի մատրիցա։
-# Մուտքագրվում է երկու m և n թվեր և ստեղծում է m x n չափի մատրիցա,
-# որը լցված է 0-ից 9-ի միջև պատահական ամբողջ թվերով:
+'''
+Գրեք ֆունկցիա, որը ստեղծում է ամբողջ թվերի մատրիցա։
+Մուտքագրվում է երկու m և n թվեր և ստեղծում է m x n չափի մատրիցա,
+որը լցված է 0-ից 9-ի միջև պատահական ամբողջ թվերով:
+'''
 
 
 from random import randint
-from os import system
-from time import sleep
 
-try:
-    Row = int(input("Enter the number of rows:"))
-    Column = int(input("Enter the number of columns:"))
 
-    matrix = []
+row = input("Enter the number of rows:")
+while not row.isdigit():
+    num = input("Enter the number of rows: ")
 
-    for row in range(Row):
-        a = []
+column = input("Enter the number of columns: ")
+while not column.isdigit():
+    num = input("Enter the number of columns: ")
 
-        for column in range(Column):
-            a.append(randint(0, 100))
-        matrix.append(a)
+row = int(row) 
+column = int(column)
 
-    for row in range(Row):
-        for column in range(Column):
-            print(matrix[row][column], end=" ")
-        print()
+matrix = []
 
-except:
-    print("Error: Please enter a valid integer for the number ")
-    sleep(2)
-    system("clear")
-    system("python3 ex_11.py")
+for r in range(row):
+    a = []
+    for c in range(column):
+        a.append(randint(0, 9))
+    matrix.append(a)
+
+for r in range(row):
+    for c in range(column):
+        print(matrix[r][c], end=" ")
+    print()    
+
+
+
+ 

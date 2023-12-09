@@ -1,5 +1,7 @@
-# ex.1
-# Display numbers divisible by 5 from a list
+'''
+Display numbers divisible by 5 from a list
+'''
+
 
 user_input = input("Enter a list of numbers separated by space: ")
 input_list = user_input.split()

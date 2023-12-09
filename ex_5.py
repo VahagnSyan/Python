@@ -1,15 +1,19 @@
-# Check Palindrome Number
+'''
+Check Palindrome Number
+Write a program to check if the given number is a palindrome number.
+A palindrome number is a number that is the same after reverse.
+For example, 545, is the palindrome numbers
+DO NOT use reverse builtin function.
+'''
 
 
 def is_palindrome_number(number):
-    try:
-        number = int(number)
-    except ValueError:
-        return print("Error: Please enter a valid integer .")
 
-    return str(number) == str(number)[::-1]
+    return number== number[::-1]
 
 
-n = input("Enter the number: ")
+num = input("Enter  number : ")
+while not num.isdigit():
+    num = input("Enter  number : ")
 
-print(f"The number {n} is palindrome: {is_palindrome_number(n)}.")
+print(f"The number {num} is palindrome: {is_palindrome_number(num)}.")

@@ -1,21 +1,23 @@
-# write functions for the following string operations
-#   -startswith(str_obj, sub_string)
-#   -endswith(str_obj, sub_string)
-#   -is_in_str(str_obj, sub_string)
-# these functions should do the same as a builtin string functions do
+'''
+write functions for the following string operations
+  -startswith(str_obj, sub_string)
+these functions should do the same as a builtin string functions do
+'''
 
 
 def startswith(str_obj, sub_string):
-    if len(str_obj) < len(sub_string):
-        return "Length of string object is less then sub string. Try Again !!"
-
     for i in range(len(sub_string)):
         if str_obj[i] != sub_string[i]:
             return False
     return True
 
 
-string = input("Enter string : ")
+input_string = input("Enter string : ")
 substring = input("Enter sub string : ")
 
-print(startswith(string, substring))
+while len(input_string) < len(substring):
+    print("\nLength of string object is less then sub string. Try Again !!\n")
+    input_string = input("Enter string : ")
+    substring = input("Enter sub string : ")
+
+print("Srartswift is", startswith(input_string, substring))
