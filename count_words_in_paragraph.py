@@ -5,8 +5,13 @@
 """
 
 
-def word_count(string):
-    words = string.split()
+import string
+
+def word_count(string_input):
+    for punct in string.punctuation:
+        string_input = string_input.replace(punct, ' ')
+    words = string_input.split()
+
     result = {}
     for word in words:
         if word in result:
@@ -15,8 +20,7 @@ def word_count(string):
             result[word] = 1
     return result
 
-
-input_text = input("Enter the text: ")
+input_text = input("Enter the text: ").lower()
 result = word_count(input_text)
 
 print(result)
