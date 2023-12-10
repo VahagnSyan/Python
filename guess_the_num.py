@@ -1,3 +1,9 @@
+"""
+Ex.
+Guess the random number
+"""
+
+
 from random import randint
 
 target = randint(1, 100)
