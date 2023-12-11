@@ -1,0 +1,30 @@
+*.pyc
+*.pyo
+*.pyd
+*.py~
+
+
+# Virtual environment
+venv/
+env/
+
+# IDE settings (e.g., PyCharm, VSCode)
+.idea/
+.vscode/
+
+# Logs and databases
+*.log
+*.sqlite3
+*.db
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Environment-specific files
+.env
+
