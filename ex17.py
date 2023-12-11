@@ -1,11 +1,11 @@
 from random import randint
 
 def is_input(inp):
-    if inp.isdigit() && int(inp) > 0:
+    if inp.isdigit() and int(inp) > 0:
         inp = int(inp)
         return inp
     else:
-        return is_number(input("Input a valid number 1, 100 (for end, type 0): "))
+        return is_input(input("Input a valid number 1, 100 (for end, type 0): "))
 
 random_number = randint(1, 100)
 input_number = is_input(input("Input a number 1, 100 (for end, type 0): "))
