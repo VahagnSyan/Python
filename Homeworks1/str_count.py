@@ -6,34 +6,37 @@
 """
 
 
-def input_string():
-    string = input("Input the string: ")
-    return string
+def test_count_sub_in_str():
+    assert count_sub_in_str("hello world", "world") == 1
 
+    assert count_sub_in_str("hello world, world!", "world") == 2
 
-def input_substring():
-    string = input("Input the substring: ")
-    return string
+    assert count_sub_in_str("abcdefg", "xyz") == 0
 
+    assert count_sub_in_str("abcabcabc", "abc") == 3
 
-string = input_string()
-sub_string = input_substring()
+    assert count_sub_in_str("xyzxyzxyz", "xyz") == 3
+
+    print("All test cases passed!")
 
 
 def count_sub_in_str(string_obj, substring):
+    if not substring:
+        return len(string_obj)
+
     count = 0
     i = 0
 
     while i < len(string_obj):
         index = string_obj.find(substring, i)
         if index != -1:
-            # If substring is present add 1 to count
-            # and start next iteratrion after substring index
+            # If substring is present, add 1 to count
+            # and start the next iteration after substring index
             count += 1
             i = index + len(substring)
         else:
-            return count
+            i += 1
     return count
 
 
-print(count_sub_in_str(string, sub_string))
+test_count_sub_in_str()

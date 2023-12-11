@@ -6,14 +6,28 @@
 """
 
 
-def input_string():
-    string = input("Input the string: ")
-    return string
+def test_print_even_index_chars():
+    assert print_even_index_chars("test_text") == "ts_et"
+
+    assert print_even_index_chars("") == ""
+
+    assert print_even_index_chars("a") == "a"
+
+    assert print_even_index_chars("!@#$%^&*()") == "!#%&("
+
+    print("All test cases passed successfully!")
 
 
-string = input_string()
+def print_even_index_chars(string):
+    result_string = ""
 
-for i in range(0, len(string)):
-    # Iterating over string and checking if they are even
-    if i % 2 == 0:
-        print(string[i])
+    for i in range(0, len(string)):
+        # Iterating over string and checking if they are even
+        if i % 2 == 0:
+            result_string += string[i]
+
+    return result_string
+
+
+# print(print_even_index_chars("test_text"))
+test_print_even_index_chars()

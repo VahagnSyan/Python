@@ -6,7 +6,24 @@
 Արդյունքը պետք է լինի ['a', 'b', 'c', 'd: '].
 """
 
-list = [["a", "b"], ["c", "d"]]
+
+def test_mix_nested_lists():
+    input_list1 = [["a", "b"], ["c", "d"]]
+    assert mix_nested_lists(input_list1) == ["a", "b", "c", "d"]
+
+    input_list2 = [[1, 2, 3], [4, 5, 6]]
+    assert mix_nested_lists(input_list2) == [1, 2, 3, 4, 5, 6]
+
+    input_list3 = [["x", "y"], ["z"]]
+    assert mix_nested_lists(input_list3) == ["x", "y", "z"]
+
+    input_list4 = [[]]
+    assert mix_nested_lists(input_list4) == []
+
+    input_list5 = []
+    assert mix_nested_lists(input_list5) == []
+
+    print("All test cases passed!")
 
 
 def mix_nested_lists(list):
@@ -19,4 +36,4 @@ def mix_nested_lists(list):
     return merged_list
 
 
-print(mix_nested_lists(list))
+test_mix_nested_lists()

@@ -4,18 +4,22 @@
 """
 
 
-def input_string():
-    string = input("Input the string: ")
-    return string
+def test_startswith():
+    assert startswith("hello", "he") == True, "Test Case 1 Failed"
 
+    assert startswith("hello", "lo") == False, "Test Case 2 Failed"
 
-def input_substring():
-    string = input("Input the substring: ")
-    return string
+    assert startswith("", "") == True, "Test Case 3 Failed"
 
+    assert startswith("", "abc") == False, "Test Case 4 Failed"
 
-string = input_string()
-sub_string = input_substring()
+    assert startswith("xyz", "") == True, "Test Case 5 Failed"
+
+    assert startswith("abc", "abcdef") == False, "Test Case 6 Failed"
+
+    assert startswith("python", "python") == True, "Test Case 7 Failed"
+
+    print("All test cases passed!")
 
 
 def startswith(str_obj, sub_string):
@@ -24,4 +28,4 @@ def startswith(str_obj, sub_string):
     return True if str_obj[0 : len(sub_string)] == sub_string else False
 
 
-print(startswith(string, sub_string))
+test_startswith()

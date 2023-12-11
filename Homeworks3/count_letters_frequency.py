@@ -3,17 +3,34 @@
 """
 
 
-def input_string():
-    string = input("Input the string: ")
-    return string
+def test_count_letters():
+    input_str = "hello"
+    expected_output = {"h": 1, "e": 1, "l": 2, "o": 1}
+    assert count_letters(input_str) == expected_output
 
+    input_str = ""
+    expected_output = {}
+    assert count_letters(input_str) == expected_output
 
-string = input_string()
+    input_str = "programming"
+    expected_output = {"p": 1, "r": 2, "o": 1, "g": 2, "a": 1, "m": 2, "i": 1, "n": 1}
+    assert count_letters(input_str) == expected_output
 
+    input_str = "hello world!"
+    expected_output = {
+        "h": 1,
+        "e": 1,
+        "l": 3,
+        "o": 2,
+        " ": 1,
+        "w": 1,
+        "r": 1,
+        "d": 1,
+        "!": 1,
+    }
+    assert count_letters(input_str) == expected_output
 
-def print_letters_count(letters_count):
-    for letter, count in letters_count.items():
-        print(f"Letter - {letter} occurs {count} times in given string")
+    print("All test cases passed!")
 
 
 def count_letters(string):
@@ -22,7 +39,7 @@ def count_letters(string):
     for char in string:
         letters_count[char] = string.count(char)
 
-    print_letters_count(letters_count)
+    return letters_count
 
 
-count_letters(string)
+test_count_letters()

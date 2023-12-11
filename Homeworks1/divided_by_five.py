@@ -3,27 +3,28 @@
 """
 
 
-def input_list():
-    while True:
-        try:
-            input_string = input("Enter elements of the list separated by spaces: ")
+def test_divisible_by_five():
+    nums = [10, 15, 20, 25, 30]
+    assert divisible_by_five(nums) == [10, 15, 20, 25, 30], "Test case 1 failed"
 
-            elements = input_string.split()
+    nums = []
+    assert divisible_by_five(nums) == [], "Test case 2 failed"
 
-            # Converts every element to int
-            elements = [int(element) for element in elements]
+    nums = [11, 17, 23, 31]
+    assert divisible_by_five(nums) == [], "Test case 3 failed"
 
-            break
-        except ValueError:
-            # If ValueError happens program asks for new input
-            print("Error: Please enter numbers.")
+    nums = [8, 10, 12, 15, 18]
+    assert divisible_by_five(nums) == [10, 15], "Test case 4 failed"
 
-    return elements
+    print("All test cases passed")
 
 
-nums = input_list()
+def divisible_by_five(nums):
+    result = []
+    for num in nums:
+        if num % 5 == 0:
+            result.append(num)
+    return result
 
-for num in nums:
-    # Iterating over numbers and checking if they are divisible by 5
-    if num % 5 == 0:
-        print(num)
+
+test_divisible_by_five()

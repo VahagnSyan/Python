@@ -5,19 +5,20 @@
 """
 
 
-def input_string():
-    string = input("Input the string: ")
-    return string
+def test_remove_characters():
+    assert remove_first_n_characters("Hello World", 3) == "lo World"
+
+    assert remove_first_n_characters("Python", 5) == "n"
+
+    assert remove_first_n_characters("abcdef", 0) == "abcdef"
+
+    assert remove_first_n_characters("", 10) == ""
+
+    print("All test cases pass!")
 
 
-def input_character_count():
-    characters_count = int(input("Input characters count to remove: "))
-    return characters_count
+def remove_first_n_characters(input_string, characters_count):
+    return input_string[characters_count:]
 
 
-string = input_string()
-characters_count = input_character_count()
-
-string = string[characters_count:]  # Slices input string starting from nth position
-
-print(string)
+test_remove_characters()

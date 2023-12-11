@@ -4,18 +4,20 @@
 """
 
 
-def input_string():
-    string = input("Input the string: ")
-    return string
+def test_endswith():
+    assert endswith("Hello, World!", "World!") == True
 
+    assert endswith("Hello, World!", "Hello") == False
 
-def input_substring():
-    string = input("Input the substring: ")
-    return string
+    assert endswith("", "") == True
 
+    assert endswith("Hello, World!", "") == False
 
-string = input_string()
-sub_string = input_substring()
+    assert endswith("Hello", "Hello, World!") == False
+
+    assert endswith("Hello, World!", "world!") == False
+
+    print("All test cases passed successfully!")
 
 
 def endswith(str_obj, sub_string):
@@ -26,4 +28,4 @@ def endswith(str_obj, sub_string):
     return True if str_obj[-len(sub_string) :] == sub_string else False
 
 
-print(endswith(string, sub_string))
+test_endswith()

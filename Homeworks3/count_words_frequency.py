@@ -3,17 +3,26 @@
 """
 
 
-def input_string():
-    string = input("Input the string: ")
-    return string
+def test_count_words():
+    assert count_words("") == {}
 
+    assert count_words("hello") == {"hello": 1}
 
-string = input_string()
+    assert count_words("The quick brown fox jumps over the lazy dog") == {
+        "The": 1,
+        "quick": 1,
+        "brown": 1,
+        "fox": 1,
+        "jumps": 1,
+        "over": 1,
+        "the": 1,
+        "lazy": 1,
+        "dog": 1,
+    }
 
+    assert count_words("Apple apple aPpLe") == {"Apple": 1, "apple": 1, "aPpLe": 1}
 
-def print_words_count(words_count):
-    for letter, count in words_count.items():
-        print(f"{letter} | {count}")
+    print("All test cases passed!")
 
 
 def count_words(string):
@@ -23,7 +32,7 @@ def count_words(string):
     for word in splitted_string:
         words_count[word] = string.count(word)
 
-    print_words_count(words_count)
+    return words_count
 
 
-count_words(string)
+test_count_words()
