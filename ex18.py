@@ -36,7 +36,7 @@ def gss():
     return f"Current branch: {current_branch}\nStaging area: {', '.join(staging_area)}"
 
 def gl():
-    return "\n".join([f"Branch: {commit['branch']}, Message: {commit['message']}" for commit in remote_repository])
+    return "Everythig olready uptodateing"
 
 def gp():
     return "Pushed changes to remote repository."
