@@ -1,31 +1,5 @@
 '''
-def quicksort(arr, low, high):
-    if low < high:
-        pivot_index = partition(arr, low, high)
-        quicksort(arr, low, pivot_index)
-        quicksort(arr, pivot_index + 1, high)
-
-def partition(arr, low, high):
-    pivot = arr[(low + high) // 2]
-    i = low - 1
-    j = high + 1
-    while True:
-        i += 1
-        while arr[i] < pivot:
-            i += 1
-
-        j -= 1
-        while arr[j] > pivot:
-            j -= 1
-
-        if i >= j:
-            return j
-
-        arr[i], arr[j] = arr[j], arr[i]
-
-my_list = [3, 6, 8, 10, 1, 2, 1]
-quicksort(my_list, 0, len(my_list) - 1)
-print(my_list)
+def quicksort and its asserts 
 '''
 
 def quicksort(arr):
