@@ -3,7 +3,7 @@ ex 16
 Write a function that takes a list with repeating elements and returns a new list with non-repeating elements of the given list.
 '''
 
-def remove_duplicates(input_list):
+def remove_duplicates(input_list):  #O(n) = O(n^2)
     unique_elements = []
     for element in input_list:
         if input_list.count(element) == 1:
