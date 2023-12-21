@@ -222,6 +222,7 @@ class ElectricCar(Car):
         """
         Display electric car details.
         """
+
         print(f"Brand: {self.brand}")
         print(f"Model: {self.model}")
         print(f"Color: {self.color}")
