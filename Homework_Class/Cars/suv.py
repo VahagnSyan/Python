@@ -2,10 +2,12 @@ from pasenger import Pasenger
 
 class Suv(Pasenger):
     """
-        Initializes suv details.
-
-        details: Dictionary containing suv details.
+        SUV class, almost all values are clear and
+        there is a possibility to change tug
     """
+
+
+    #Valuation of the main attributes belonging to the Suv car
     def __init__(self, brand, carModel,
                  speed=0,
                  fuel=50,
@@ -28,6 +30,7 @@ class Suv(Pasenger):
                          tug=tug)
     
 
+    #Tug change function
     def change_tug(self):
         if self.tug == 2:
             self.tug=4

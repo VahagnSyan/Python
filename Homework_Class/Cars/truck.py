@@ -1,6 +1,13 @@
 import car
 
 class Truck(car.Car):
+    '''
+        A class of trucks where certain values are clear and 
+        there is an opportunity to load and unload cargo
+    '''
+
+
+    #Valuation of the main attributes belonging to the truck car
     def __init__(self, brand, carModel,
                  speed=0,
                  fuel=50,
@@ -30,7 +37,7 @@ class Truck(car.Car):
         
     
     def upload(self, weight):
-        #Increases the weight of the car by the given value
+        #Loading a truck at a given value
         if car._input_check(weight, "Weight"):
             self.loadWeight += weight
             if self.loadWeight > self.maxLoadWeight:
@@ -39,13 +46,14 @@ class Truck(car.Car):
     
 
     def unload(self, weight):
-        #Decreases the weight of the car by the given value
+        #Unloading a truck at a given value
         if car._input_check(weight, "Weight"):
             self.loadWeight -= weight
             if self.loadWeight < 0:
                 self.loadWeight = 0
     
 
+    #Print all information about truck
     def car_info(self):
         super().car_info()
         print(f"\033[90mMax load weight:\033[0m {self.maxLoadWeight} Tons\n",
