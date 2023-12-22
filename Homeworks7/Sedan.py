@@ -34,3 +34,30 @@ class Sedan(Car):
             self.trunk_status = "closed"
         else:
             print("Trunk is already closed.")
+
+
+sedan = Sedan(
+    {
+        "brand": "BMW",
+        "model": "M3",
+        "color": "Black",
+        "wheels_count": 4,
+        "doors_count": 4,
+        "motor_type": "Fuel engine",
+        "fuel_type": "Gasoline",
+        "fuel_tank": 63,
+        "current_fuel_count": 63,
+        "top_speed": "302km/h",
+        "weight": 1570,
+        "seats_count": 5,
+        "trunk_capacity": 0.5,
+    }
+)
+
+sedan.show_details()
+sedan.accelerate(60)
+sedan.show_speed()
+sedan.decelerate(30)
+sedan.show_status()
+sedan.refuel(30)
+sedan.stop_engine()

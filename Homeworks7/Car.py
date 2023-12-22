@@ -14,9 +14,7 @@ class Car:
         self.fuel_type = details.get("fuel_type", "Unknown Fuel Type")
         self.fuel_tank = details.get("fuel_tank", "Unknown Fuel Tank")
         self.trunk_capacity = details.get("trunk_capacity", "Unknown Trunk Capacity")
-        self.current_fuel_count = details.get(
-            "current_fuel_count", "Unknown Current Fuel Count"
-        )
+        self.current_fuel_count = details.get("current_fuel_count", 0)
         self.top_speed = details.get("top_speed", "Unknown Top Speed")
         self.weight = details.get("weight", 0)
         self.seats_count = details.get("seats_count", "Unknown Seats Count")

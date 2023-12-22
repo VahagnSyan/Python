@@ -41,3 +41,30 @@ class ElectricCar(Car):
         """
 
         print("Electric cars don't require refueling.")
+
+
+electric_car = ElectricCar(
+    {
+        "brand": "Tesla",
+        "model": "Model 4",
+        "color": "White",
+        "wheels_count": 4,
+        "doors_count": 6,
+        "motor_type": "Electric",
+        "fuel_type": "Electric",
+        "top_speed": "453km/h",
+        "weight": 2070,
+        "seats_count": 6,
+        "has_sliding_doors": False,
+        "battery_capacity": 300,
+        "charge_level": 250,
+    }
+)
+
+electric_car.show_details()
+electric_car.accelerate(60)
+electric_car.show_speed()
+electric_car.decelerate(30)
+electric_car.show_status()
+electric_car.refuel(2)
+electric_car.stop_engine()

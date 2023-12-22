@@ -39,3 +39,29 @@ class Minivan(Car):
                 print("Sliding doors are already closed.")
         else:
             print("This minivan does not have sliding doors.")
+
+
+minivan = Minivan(
+    {
+        "brand": "Mercedes",
+        "model": "K4",
+        "color": "White",
+        "wheels_count": 4,
+        "doors_count": 6,
+        "motor_type": "Fuel engine",
+        "fuel_type": "Gasoline",
+        "top_speed": "253km/h",
+        "weight": 2070,
+        "seats_count": 7,
+        "has_sliding_doors": True,
+    }
+)
+
+minivan.show_details()
+minivan.accelerate(60)
+minivan.show_speed()
+minivan.decelerate(30)
+minivan.show_status()
+minivan.open_sliding_doors()
+minivan.close_sliding_doors()
+minivan.stop_engine()
