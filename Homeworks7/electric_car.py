@@ -1,7 +1,16 @@
-from Car import Car
+"""
+Electric car class inherited by Car Base class
+"""
+
+from car import Car
 
 
 class ElectricCar(Car):
+    """
+    Electric car class inherited by Car Base class,
+    has its own attributes.
+    """
+
     def __init__(self, details):
         super().__init__(details)
         self.battery_capacity = details.get("battery_capacity", 0)

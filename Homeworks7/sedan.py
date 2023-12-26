@@ -1,7 +1,16 @@
-from Car import Car
+"""
+    Sedan class inherited by Car class
+"""
+
+from car import Car
 
 
 class Sedan(Car):
+    """
+    Sedan class inherited by Car class attributes,
+    has its own attributes.
+    """
+
     def __init__(self, details):
         """
         Initializes sedan details.

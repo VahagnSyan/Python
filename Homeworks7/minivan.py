@@ -1,7 +1,15 @@
-from Car import Car
+"""Minivan class inherited by Car class"""
+
+from car import Car
 
 
 class Minivan(Car):
+    """
+    Minivan class derived by Car class,
+    has its own attributes.
+
+    """
+
     def __init__(self, details):
         """
         Initializes minivan details.

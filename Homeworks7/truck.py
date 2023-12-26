@@ -1,7 +1,14 @@
-from Car import Car
+"""Truck class inherited by Car class"""
+
+from car import Car
 
 
 class Truck(Car):
+    """
+    Truck class inherited by Car class attributes,
+    has its own attributes.
+    """
+
     def __init__(self, details):
         super().__init__(details)
         self.payload_capacity = details.get("payload_capacity", 0)
