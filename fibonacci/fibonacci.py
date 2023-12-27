@@ -22,6 +22,7 @@ def fibonacci_v2(n: int) -> int:
     '''
     This function returns the nth Fibonacci number
     @parm: n: should be int
+    ...
     '''
     if n == 1:
         return 0
