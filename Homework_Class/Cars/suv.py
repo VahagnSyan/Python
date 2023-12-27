@@ -6,32 +6,35 @@ class Suv(Pasenger):
         there is a possibility to change tug
     """
 
-
-    #Valuation of the main attributes belonging to the Suv car
-    def __init__(self, brand, carModel,
+    def __init__(self, brand, car_model,
                  speed=0,
                  fuel=50,
-                 wheelCount=4,
-                 dourCount=4,
-                 seatsCount=5,
-                 maxSpeed=250,
-                 fuelTank=90,
+                 wheel_count=4,
+                 dour_count=4,
+                 seats_count=5,
+                 max_speed=250,
+                 fuel_tank=90,
                  tug=4):
+        """
+            # Valuation of the main attributes belonging to the Suv car
+        """
         
         super().__init__(brand=brand,
-                         carModel=carModel,
+                         car_model=car_model,
                          speed=speed,
                          fuel=fuel,
-                         wheelCount=wheelCount,
-                         dourCount=dourCount,
-                         seatsCount=seatsCount,
-                         maxSpeed=maxSpeed,
-                         fuelTank=fuelTank,
+                         wheel_count=wheel_count,
+                         dour_count=dour_count,
+                         seats_count=seats_count,
+                         max_speed=max_speed,
+                         fuel_tank=fuel_tank,
                          tug=tug)
     
 
-    #Tug change function
     def change_tug(self):
+        '''
+            Tug change function
+        '''
         if self.tug == 2:
             self.tug=4
             print("\033[94m\n4x4 ON!\033[0m\n")

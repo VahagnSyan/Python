@@ -5,8 +5,6 @@ class Pasenger(Car):
         A class of passenger car where some values are explicit
     '''
 
-
-    #Valuation of the main attributes belonging to the passenger car
     def __init__(self, brand, carModel,
                  speed=0,
                  fuel=100,
@@ -16,6 +14,10 @@ class Pasenger(Car):
                  maxSpeed=350,
                  fuelTank=100,
                  tug=2):
+        
+        """
+            Valuation of the main attributes belonging to the passenger car
+        """
         
         super().__init__(brand=brand,
                          carModel=carModel,
@@ -27,3 +29,4 @@ class Pasenger(Car):
                          maxSpeed=maxSpeed,
                          fuelTank=fuelTank,
                          tug=tug)
+

@@ -1,3 +1,7 @@
+"""
+    class truc inherit from car
+"""
+
 import car
 
 class Truck(car.Car):
@@ -6,67 +10,69 @@ class Truck(car.Car):
         there is an opportunity to load and unload cargo
     '''
 
-
-    #Valuation of the main attributes belonging to the truck car
-    def __init__(self, brand, carModel,
+    def __init__(self,
+                 brand,
+                 car_model,
                  speed=0,
                  fuel=50,
-                 wheelCount=6,
-                 dourCount=2,
-                 seatsCount=3,
-                 maxSpeed=120,
-                 fuelTank=200,
-                 maxLoadWeight = 20,
-                 loadWeight = 0,
-                 tug = 6,
-                 ):
-        
-        self.maxLoadWeight = maxLoadWeight
-        self.loadWeight = loadWeight
-        
+                 wheel_count=6,
+                 dour_count=2,
+                 seats_count=3,
+                 max_speed=120,
+                 fuel_tank=200,
+                 max_load_weight = 20,
+                 load_weight = 0,
+                 tug = 6):
+        """
+            Valuation of the main attributes belonging to the truck car
+        """
+        self.max_load_weight = max_load_weight
+        self.load_weight = load_weight
         super().__init__(brand=brand,
-                         carModel=carModel,
+                         car_model=car_model,
                          speed=speed,
                          fuel=fuel,
-                         wheelCount=wheelCount,
-                         dourCount=dourCount,
-                         seatsCount=seatsCount,
-                         maxSpeed=maxSpeed,
-                         fuelTank=fuelTank,
+                         wheel_count=wheel_count,
+                         dour_count=dour_count,
+                         seats_count=seats_count,
+                         max_speed=max_speed,
+                         fuel_tank=fuel_tank,
                          tug=tug)
-        
-    
     def upload(self, weight):
-        #Loading a truck at a given value
-        if car._input_check(weight, "Weight"):
-            self.loadWeight += weight
-            if self.loadWeight > self.maxLoadWeight:
-                self.loadWeight = self.maxLoadWeight
-                print(f"\033[94mInput weight should not be more than {self.maxLoadWeight} Tons!\033[0m\n")
-    
+        """
+            Loading a truck at a given value
+        """
 
+        if car._positive_number(weight, "Weight"):
+            self.load_weight += weight
+            if self.load_weight > self.max_load_weight:
+                self.load_weight = self.max_load_weight
+                print("\033[94mInput weight should not be more than",
+                      f"{self.max_load_weight} Tons!\033[0m\n", sep='')
     def unload(self, weight):
-        #Unloading a truck at a given value
-        if car._input_check(weight, "Weight"):
-            self.loadWeight -= weight
-            if self.loadWeight < 0:
-                self.loadWeight = 0
-    
+        """
+            Unloading a truck at a given value
+        """
 
-    #Print all information about truck
+        if car._positive_number(weight, "Weight"):
+            self.load_weight = max(self.load_weight, 0)
     def car_info(self):
+        """
+            Print all information about truck
+        """
+
         super().car_info()
-        print(f"\033[90mMax load weight:\033[0m {self.maxLoadWeight} Tons\n",
+        print(f"\033[90mMax load weight:\033[0m {self.max_load_weight} Tons\n",
               sep='\n')
 
 
     def car_status(self):
         super().car_status()
-        print(f"Load weight: \033[92m{self.loadWeight} Tons\033[0m\n",
+        print(f"Load weight: \033[92m{self.load_weight} Tons\033[0m\n",
               sep='\n')
 
 
-type1 = Truck("Volvo", "Volvo-FH", fuelTank=100)
+type1 = Truck("Volvo", "Volvo-FH", fuel_tank=100)
 type1.car_info()
 type1.car_status()
 type1.upload(20)

@@ -27,6 +27,6 @@ def input_number():
             return input_number
         except ValueError:
             print("Invalid input. Please enter a valid number.")
-
+        
 guess_the_number()    
 
