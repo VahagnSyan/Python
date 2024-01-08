@@ -15,7 +15,6 @@ def fibonacci_v1(n: int) -> int:
         return 1
     return fibonacci_v1(n - 1) + fibonacci_v1(n - 2)
 
-print(fibonacci_v1(10))
 
 # Version 2
 def fibonacci_v2(n: int) -> int:
@@ -33,4 +32,5 @@ def fibonacci_v2(n: int) -> int:
         a, b = b, a + b
     return b
 
-print(fibonacci_v2(10))
+assert fibonacci_v2(5) == 3, 'Should be 3'
+assert fibonacci_v2(12) == 89, 'Should be 89'
