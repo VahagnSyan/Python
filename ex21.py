@@ -5,6 +5,9 @@ def mmap(func, iterable1, iterable2):
 def add(num1, num2):
     return num1 + num2
 
+def mul(num1, num2):
+    return num1 * num2
+
 l1 = [1, 2, 3, 4, 5]
 l2 = [1, 3, 5]
 
