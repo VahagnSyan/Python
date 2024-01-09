@@ -1,148 +1,170 @@
+'''
+Car class is a binary class
+'''
+
 class Car:
-    def __init__(self, tires, fuel, max_speed):
+    '''
+    Car class is a binary class
+    '''
+
+    def __init__(self, tires, fuel, gas_tank_size, speed, max_speed, brand):
         self.tires = tires
         self.fuel = fuel
         self.max_speed = max_speed
+        self.speed = speed
+        self.in_progress = speed > 0
+        self.brand = brand
+        self.gas_tank_size = gas_tank_size
 
-    def drive(self, hours, speed):
-        distance = hours * speed
-        return f"The car traveled {distance} kilometers."
+    def reduce_speed(self, speed_to_reduce):
+        '''
+        Reduce speed if speed is > 0
+        '''
+        try:
+            if self.in_progress and self.speed > 0:
+                if self.speed - speed_to_reduce > 0:
+                    self.speed -= speed_to_reduce
+                    return (self.in_progress, self.speed)
+                self.in_progress = False
+                self.speed = 0
+                raise OverflowError
+            raise ValueError
+        except ValueError:
+            print('Speed is 0; you can\'t reduce speed')
+        except OverflowError:
+            print('Car stopped. Speed = 0')
+            return (self.in_progress, self.speed)
+        return self.in_progress, self.speed
 
-    def refuel(self, amount):
-        self.fuel += amount
-        return f"Refueled the car. Current fuel level: {self.fuel} liters."
+    def add_speed(self, additional_speed):
+        '''
+        Add speed if fuel is available
+        '''
+        if self.speed + additional_speed < self.max_speed and self.speed != self.max_speed:
+            try:
+                if self.fuel - 10 > 0:
+                    self.speed += additional_speed
+                    self.fuel -= 10
+                else:
+                    raise ValueError
+            except ValueError:
+                print('Your fuel is 0')
+        return self.speed
 
-    def accelerate(self, acceleration):
-        self.max_speed += acceleration
-        return f"The car accelerated. New maximum speed: {self.max_speed} km/h."
+    def break_(self):
+        '''
+        Apply the brakes
+        '''
+        self.speed = 0
+        self.in_progress = False
+        return self.speed, self.in_progress
 
-    def brake(self, deceleration):
-        self.max_speed -= deceleration
-        return f"The car applied the brake. New maximum speed: {self.max_speed} km/h."
+    def refuel(self, fuel):
+        '''
+        Refuel the car
+        '''
+        if self.fuel + fuel <= self.gas_tank_size:
+            self.fuel += fuel
+        else:
+            self.fuel = self.gas_tank_size
+        return self.fuel
+
+    @property
+    def tires(self):
+        '''
+        Return tires
+        '''
+        return self.tires
+
+    @property
+    def fuel(self):
+        '''
+        Return fuel
+        '''
+        return self.fuel
+
+    @property
+    def max_speed(self):
+        '''
+        Return max_speed
+        '''
+        return self.max_speed
+
+    @property
+    def speed(self):
+        '''
+        Return speed
+        '''
+        return self.speed
+
+    @property
+    def brand(self):
+        '''
+        Return brand
+        '''
+        return self.brand
+
+    @max_speed.setter
+    def max_speed(self, new_max_speed):
+        '''
+        Set value max_speed
+        '''
+        self.max_speed = new_max_speed
+
 
 class PassengerCar(Car):
-    def __init__(self, tires, fuel, max_speed, passengers):
-        super().__init__(tires, fuel, max_speed)
-        self.passengers = passengers
+    '''
+    PassengerCar is a class to inherit from Car class
+    '''
 
-    def play_music(self):
-        return "Playing some cool tunes!"
+    def __init__(self, tires, fuel, gas_tank_size, speed, max_speed, brand, passengers_count, passengers_count_now):
+        super().__init__(tires, fuel, gas_tank_size, speed, max_speed, brand)
+        self.passengers_count = passengers_count
+        self.passengers_count_now = passengers_count_now
 
-    def passenger_count(self):
-        return f"The car has {self.passengers} passengers on board."
+    def sit_passenger(self, count):
+        '''
+        Allow passengers to sit if there is enough space
+        '''
+        if self.passengers_count_now + count <= self.passengers_count:
+            self.passengers_count_now += count
+        else:
+            self.passengers_count_now = self.passengers_count
+        return self.passengers_count_now
 
-    def customize_car(self, color):
-        return f"Customizing the car with the color: {color}"
+    @property
+    def passengers_count(self):
+        '''
+        Return passengers_count
+        '''
+        return self.passengers_count
+
 
 class Truck(Car):
-    def __init__(self, tires, fuel, max_speed, cargo_capacity):
-        super().__init__(tires, fuel, max_speed)
+    '''
+    Truck is a class to inherit from Car class
+    '''
+
+    def __init__(self, tires, fuel, gas_tank_size, speed, cargo_capacity, max_cargo_capacity):
+        super().__init__(tires, fuel, gas_tank_size, speed, max_speed=120, brand="Truck")
         self.cargo_capacity = cargo_capacity
+        self.max_cargo_capacity = max_cargo_capacity
 
-    def load_cargo(self):
-        return "Loading cargo into the truck."
+    def load_cargo(self, cargo_to_load):
+        '''
+        Load cargo if not full
+        '''
+        if self.max_cargo_capacity != self.cargo_capacity:
+            if self.cargo_capacity + cargo_to_load <= self.max_cargo_capacity:
+                self.cargo_capacity += cargo_to_load
+        return self.cargo_capacity
 
-    def check_cargo_capacity(self):
-        return f"The truck has a cargo capacity of {self.cargo_capacity} tons."
-
-    def spray_paint(self, color):
-        return f"Spray painting the truck with the color: {color}"
-
-class ElectricCar(PassengerCar):
-    def __init__(self, tires, battery_life, passengers):
-        super().__init__(tires, 100, 120, passengers)
-        self.battery_life = battery_life
-
-    def charge_battery(self, hours):
-        self.battery_life += hours
-        return f"Charging the electric car's battery. Current battery life: {self.battery_life} hours."
-
-    def change_color(self, color):
-        return f"Changing the electric car's color to: {color}"
-
-    def drive(self, hours, speed):
-        energy_consumption = hours * speed / 10
-        self.battery_life -= energy_consumption
-        return f"The electric car traveled {speed * hours} kilometers. Remaining battery life: {self.battery_life} hours."
-
-class SportsCar(PassengerCar):
-    def __init__(self, tires, fuel, max_speed, passengers, spoiler):
-        super().__init__(tires, fuel, max_speed, passengers)
-        self.spoiler = spoiler
-
-    def activate_spoiler(self):
-        return "Activating the spoiler for better aerodynamics."
-
-    def high_speed_drive(self):
-        return f"The sports car is zooming at {self.max_speed + 20} km/h!"
-
-    def customize_car(self, decal):
-        return f"Customizing the sports car with a decal: {decal}"
-
-    def drift(self):
-        return "Performing a stylish drift on the racetrack."
-
-class Van(Truck):
-    def __init__(self, tires, fuel, max_speed, cargo_capacity, passenger_capacity):
-        super().__init__(tires, fuel, max_speed, cargo_capacity)
-        self.passenger_capacity = passenger_capacity
-
-    def carry_passengers(self):
-        return f"The van is carrying {self.passenger_capacity} passengers."
-
-    def park(self):
-        return "Parking the van in a tight spot with ease."
-
-class PickupTruck(Truck):
-    def __init__(self, tires, fuel, max_speed, cargo_capacity, towing_capacity):
-        super().__init__(tires, fuel, max_speed, cargo_capacity)
-        self.towing_capacity = towing_capacity
-
-    def tow_trailer(self):
-        return f"The pickup truck is towing a trailer with a capacity of {self.towing_capacity} tons."
-
-# Function to get numeric input
-def get_numeric_input(prompt):
-    while True:
-        try:
-            value = float(input(prompt))
-            return value
-        except ValueError:
-            print("Invalid input. Please enter a numeric value.")
-
-# Create instances PassengerCar
-tires_passenger_car = 4  
-fuel_passenger_car = 50   
-max_speed_passenger_car = 180  
-passengers_passenger_car = 4  
-
-passenger_car = PassengerCar(tires=tires_passenger_car, fuel=fuel_passenger_car, max_speed=max_speed_passenger_car, passengers=passengers_passenger_car)
-
-# Create instances Van and PickupTruck
-van = Van(tires=4, fuel=60, max_speed=150, cargo_capacity=3, passenger_capacity=8)
-pickup_truck = PickupTruck(tires=6, fuel=70, max_speed=120, cargo_capacity=5, towing_capacity=2)
-
-#  PassengerCar
-print(passenger_car.drive(hours=2, speed=60)) # Calling  method  with 2 hours and a speed 60.
-print(passenger_car.play_music())
-print(passenger_car.passenger_count())
-print(passenger_car.accelerate(20))  # Accelerate the car by 20 km/h
-print(passenger_car.brake(10))  # Apply the brake to reduce speed by 10 km/h
-print()
-
-#  Van
-print(van.drive(hours=1, speed=50))
-print(van.load_cargo())
-print(van.check_cargo_capacity())
-print(van.spray_paint(color="blue"))
-print(van.carry_passengers())
-print(van.park())  
-print()
-
-#  PickupTruck
-print(pickup_truck.drive(hours=2, speed=80))
-print(pickup_truck.load_cargo())
-print(pickup_truck.check_cargo_capacity())
-print(pickup_truck.spray_paint(color="red"))
-print(pickup_truck.tow_trailer())
-print(pickup_truck.offroad_drive())
+    @property
+    def cargo_capacity(self):
+        '''
+        Return cargo capacity
+        '''
+        return self.cargo_capacity
+class SportCar(PassengerCar):
+    def __init__(self, tires, fuel, gas_tank_size, speed, max_speed, brand, passengers_count, passengers_count_now):
+        super().__init__(tires, fuel, gas_tank_size, speed, max_speed, brand, passengers_count, passengers_count_now)
