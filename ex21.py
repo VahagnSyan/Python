@@ -1,17 +1,27 @@
-def mmap(func, iterable1, iterable2):
-    for item1, item2 in zip(iterable1, iterable2):
-        yield func(item1, item2)
+def mmap(func, *iterable):
+    for items in zip(*iterable):
+        yield func(*items)
 
-def add(num1, num2):
-    return num1 + num2
+def add(*nums):
+    return sum(nums)
 
-def mul(num1, num2):
-    return num1 * num2
+def mul(*nums):
+    result = 1
+    for num in nums:
+        result *= num
+    return result
 
 l1 = [1, 2, 3, 4, 5]
 l2 = [1, 3, 5]
+l3 = [2, 3, 4]
+l4 = [5, 6, 7, 9]
 
-result_iterator = mmap(add, l1, l2)
+result_iterator = mmap(add, l1, l2, l3)
+print(f"Result of sum:")
+for result in result_iterator:
+    print(result)
 
+result_iterator = mmap(mul, l1, l2, l3, l4)
+print(f"Result of multipl...:")
 for result in result_iterator:
     print(result)
