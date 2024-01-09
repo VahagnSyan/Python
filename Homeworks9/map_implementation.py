@@ -16,8 +16,6 @@ def custom_map(func, iterable):
         yield func(i)
 
 
-l = [1, 2, 3, 4, 5]
-
-
-for i in custom_map(square, l):
-    print(i)
+assert list(custom_map(square, [1, 2, 3, 4, 5])) == [1, 4, 9, 16, 25]
+assert list(custom_map(square, [5, -1, 2, 8, 10])) == [25, 1, 4, 64, 100]
+assert list(custom_map(square, [-3, 7, 0, -4, 100])) == [9, 49, 0, 16, 10000]

@@ -3,26 +3,41 @@
 """
 
 
-def custom_map(add_function, list1, list2):
-    iterator1 = iter(list1)
-    iterator2 = iter(list2)
+def custom_map(func, *iterables):
+    iterators = [iter(iterable) for iterable in iterables]
 
     while True:
         try:
-            yield add_function(next(iterator1), next(iterator2))
+            yield func(*[next(iterator) for iterator in iterators])
         except StopIteration:
             break
 
 
 list1 = [1, 2, 3, 4, 5]
 list2 = [1, 2, 3, 4]
+list3 = [2, 3, 4, 5]
+list4 = [2, 3, 4, 5]
+list5 = [2, 3, 4, 5]
 
 
-def add_elements(x, y):
-    return x + y
+def add(*args):
+    return sum(args)
 
 
-result = custom_map(add_elements, list1, list2)
+def multiplication(*args):
+    result = 1
+    for arg in args:
+        result *= arg
+    return result
 
-for num in result:
+
+result_add = custom_map(add, list1, list2, list3, list4, list5)
+result_multiply = custom_map(multiplication, list1, list2, list3, list4, list5)
+
+print("Addition:")
+for num in result_add:
+    print(num)
+
+print("\nMultiplication:")
+for num in result_multiply:
     print(num)
