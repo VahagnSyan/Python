@@ -8,9 +8,5 @@ def my_range(start, stop=None, step=1):
              yield current
              current += step
      
-         if stop == start or current > stop and step > 0 or current < stop and
-     step < 0:
-             yield []
-     
      for i in my_range(1, 30, 5):
          print(i)
