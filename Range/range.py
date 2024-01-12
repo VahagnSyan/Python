@@ -1,8 +1,8 @@
 '''
-    Range function
+    class Range
 '''
 
-def my_range(*args):
+class Range:
     '''
     Return an generator that produces a sequence of integers from start
     (inclusive) to stop (exclusive) by step.  range(i, j)
@@ -11,21 +11,40 @@ def my_range(*args):
     a list of 4 elements.
     When step is given, it specifies the increment (or decrement).
     '''
-    start = 0
-    step = 1
-    if len(args) == 1:
-        stop = args
-    elif len(args) == 2:
-        start, stop == args
-    elif len(args) == 3:
-        start, stop, step = args
-    else:
-        et = "my_range expected at most 3 arguments, got {}".format(len(args)))
-        raise TypeError(et)
-    current = start
-    while (step > 0 and current < stop) or (step < 0 and current > stop):
-        yield current
-        current += step
 
-for i in my_range(10, 1, -2, 4):
+    def __init__(self, *args):
+        '''
+        initialize arguments
+        '''
+        self.start = 0
+        self.step = 1
+
+        if len(args) == 1:
+            self.stop = args[0]
+        elif len(args) == 2:
+            self.start, self.stop = args
+        elif len(args) == 3:
+            self.start, self.stop, self.step = args
+        else:
+            et = f"myrange expected at most 3 arguments, got {len(args)}"
+            raise TypeError(et)
+
+    def __iter__(self):
+        '''
+        creating iterable object
+        '''
+        current = self.start
+
+        while (self.step > 0 and current < self.stop) or \
+                (self.step < 0 and current > self.stop):
+            yield current
+            current += self.step
+
+    def __call__(self):
+        '''
+        return iterable object
+        '''
+        return iter(self)
+
+for i in Range(10):
     print(i)
