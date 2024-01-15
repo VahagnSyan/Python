@@ -17,6 +17,21 @@ class Range:
             yield current
             current += self.step
 
+    def __next__(self):
+        if self.start >= self.stop:
+            raise StopIteration
+        value = self.start
+        self.start += self.step
+        return value
+
+
+r = Range(5, 15, 2)
+result = list(r)
+assert result == [5, 7, 9, 11, 13]
+
+r = Range(-10, 0, 2)
+result = list(r)
+assert result == [-10, -8, -6, -4, -2]
 
 r = Range(5, 15, 2)
 result = list(r)
