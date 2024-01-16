@@ -18,16 +18,17 @@ class MyRange:
             self.start, self.stop, self.step = args
             if self.stop == 0:
                 raise ValueError('')
-
-        self.start = start
-        self.stop = stop
-        self.step = step
+        self._carent = self.start
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        
+        if(self._curent < self.stop and self.step > 0) \
+          or (self._curent > self.stop and self.step < 0):
+              result = self._curent += self.step
+              return result
+        raise StopIteration
 
 # Test case 1
 result = list(MyRange(2, 10, 2))
