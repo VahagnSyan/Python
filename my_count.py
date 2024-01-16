@@ -8,11 +8,23 @@ class Сount:
             self.start, self.step = args[0], 1
         else:
             self.start, self.step = args
+        self.current = self.start
 
     def __iter__(self):
+        return self
+
+    def __next__(self):
         while True:
-            yield self.start
-            self.start += self.step
+            result = self.current
+            self.current += self.step
+            return result 
 
     def __eq__(self, other):
         return list(self) == other
+
+
+a = Сount(1, 2)
+assert next(a) == 1
+assert next(a) == 3
+assert next(a) == 5
+assert next(a) == 7
