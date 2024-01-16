@@ -1,3 +1,4 @@
+"""
 Random Sentences Processor
 
 This script generates random sentences, processes them, and saves the results in separate files.
