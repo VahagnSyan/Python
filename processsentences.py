@@ -62,5 +62,4 @@ def process_sentences():
             if new_sentence not in existing_repeated:
                 repeated_file.write(new_sentence + '\n')
 
-# Execute the actions
 process_sentences()
