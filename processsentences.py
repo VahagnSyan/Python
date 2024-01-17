@@ -5,7 +5,6 @@ This script generates random sentences, processes them, and saves the results in
 """
 
 import random
-import os
 
 def generate_random_sentence(length=3):
     """
