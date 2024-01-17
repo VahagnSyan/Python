@@ -1,8 +1,8 @@
 import random
 
 characters = "abcde"
-line_count = 20  # Change this to the desired number of lines
-repeat_probability = 0.4  # Adjust this to control the probability of lines being repeated
+line_count = 20
+repeat_probability = 0.4
 
 lines = []
 
