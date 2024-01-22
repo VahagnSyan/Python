@@ -1,10 +1,35 @@
+from random import randint
+
+
+def generate_users_file():
+    users_template = {
+        "names": ["John", "Jane", "Alice", "Bob", "Alice"],
+        "surnames": ["Doe", "Smith", "Jones", "Johnson"],
+        "phone_numbers": [1234567890, 9876543210, 5551234567, 1112223333, 5551234567],
+        "emails": [
+            "johndoe@gmail.com",
+            "janesmith@gmail.com",
+            "alicejones@gmail.com",
+            "bobjohnson@gmail.com",
+            "alicejones@gmail.com",
+        ],
+    }
+
+    with open("users.csv", "w", newline="\n") as users_file:
+        for i in range(10):
+            new_user = []
+            for key, value in users_template.items():
+                new_user.append(str((value[randint(0, len(users_template)) - 1])))
+            users_file.write(" ".join(new_user) + "\n")
+
+
 def convert_csv(txt_file_path, csv_file_path):
     """
-    Read users from a txt file, (keeping last occurrence if duplicate email occurs),
+    Read users from a users.csv file, (keeping last occurrence if duplicate email occurs),
     and creates a CSV file.
 
     @args:
-        txt_file_path (str): The path to the input TXT file.
+        users_file_path (str): The path to the input users file.
         csv_file_path (str): The path to the output CSV file.
     """
 
@@ -13,13 +38,11 @@ def convert_csv(txt_file_path, csv_file_path):
 
     with open(txt_file_path, "r") as txt_file:
         for line in txt_file:
-            name, surname, phone_number, email, creation_date = line.strip().split()
+            name, surname, phone_number, email = line.strip().split()
 
-            if email not in seen_emails:
-                seen_emails[email] = (name, surname, phone_number, email, creation_date)
-            else:
+            seen_emails[email] = (name, surname, phone_number, email)
+            if email in seen_emails:
                 print(f"Duplicate email '{email}' found. Keeping the last occurrence.")
-                seen_emails[email] = (name, surname, phone_number, email, creation_date)
 
     unique_users = [list(user_info) for email, user_info in seen_emails.items()]
 
@@ -28,6 +51,8 @@ def convert_csv(txt_file_path, csv_file_path):
             csv_file.write(",".join(user_info) + "\n")
 
 
-txt_file_path = "users.txt"
+generate_users_file()
+
+users_file_path = "users.csv"
 csv_file_path = "unique_users.csv"
-convert_csv(txt_file_path, csv_file_path)
+convert_csv(users_file_path, csv_file_path)
